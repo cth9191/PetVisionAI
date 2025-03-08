@@ -116,12 +116,12 @@ export const extractMultipleVideoFrames = async (
 /**
  * Extracts a single frame from a video file at a specific time
  * @param videoFile The video file to extract a frame from
- * @param time The time in seconds to extract the frame at
+ * @param time The time in seconds to extract the frame at (unused in current implementation)
  * @returns A base64-encoded JPEG image
  */
 export const extractVideoFrame = async (
   videoFile: File,
-  time: number = 0
+  _time: number = 0  // Added underscore to indicate intentionally unused parameter
 ): Promise<string> => {
   const frames = await extractMultipleVideoFrames(videoFile, 1);
   return frames[0];
