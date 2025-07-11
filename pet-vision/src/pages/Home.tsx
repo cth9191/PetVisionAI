@@ -5,6 +5,7 @@ import VideoUpload from '../components/VideoUpload';
 import HowItWorks from '../components/HowItWorks';
 import Benefits from '../components/Benefits';
 import Pricing from '../components/Pricing';
+import VideoUploadErrorBoundary from '../components/VideoUploadErrorBoundary';
 import { AnalysisResult } from '../services/geminiService';
 
 // Pet images - using free stock pet images
@@ -70,10 +71,12 @@ const Home = () => {
               </p>
               
               <div className="bg-white bg-opacity-10 backdrop-blur-sm p-8 rounded-xl shadow-2xl border border-white border-opacity-20">
-                <VideoUpload 
-                  onUploadStart={() => setIsUploading(true)}
-                  onAnalysisComplete={handleAnalysisComplete}
-                />
+                <VideoUploadErrorBoundary>
+                  <VideoUpload 
+                    onUploadStart={() => setIsUploading(true)}
+                    onAnalysisComplete={handleAnalysisComplete}
+                  />
+                </VideoUploadErrorBoundary>
               </div>
               
               {isUploading && (
@@ -184,4 +187,4 @@ const Home = () => {
   );
 };
 
-export default Home; 
+export default Home;  
