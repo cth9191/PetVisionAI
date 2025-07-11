@@ -1,0 +1,14 @@
+{
+  "builds": [
+    {
+      "src": "pet-vision/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "pet-vision/dist"
+      }
+    }
+  ],
+  "env": {
+    "VITE_BACKEND_URL": "https://your-backend-url.fly.dev"
+  }
+}
